@@ -8,8 +8,90 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for fixes */
+        nav {
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .register-btn a {
+            background: #651FFF;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .register-btn a:hover {
+            background: #7C4DFF;
+            box-shadow: 0 0 15px #7C4DFF;
+        }
+        
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            padding: 0 5%;
+        }
+        
+        /* Music control button */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.2);
+            border: 2px solid #0ff;
+            color: #0ff;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .music-btn:hover {
+            background: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+    </style>
 </head>
 <body>
+    <audio id="bg-music" loop>
+        <source src="audio/HackAura Anthem.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <button id="music-control" class="music-btn">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
     <header>
         <nav>
             <div class="logo">
@@ -23,7 +105,7 @@
                 <li><a href="#prizes">Prizes</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li class="register-btn"><a href="http://unstop.com/p/hackaura-2025-geeks-hive-1527009" target="_blank">Register Now</a></li>
+                <li class="register-btn"><a href="http://unstop.com/p/hackaura-2025-geeks-hive-1527009" target="_blank" style="color: white;">Register Now</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -68,30 +150,13 @@
             <h2 class="section-title">About HackAura</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>HackAura is a national-level virtual open innovation hackathon that brings together the brightest minds to innovate, create, and solve real-world problems. Our mission is to provide a platform where creativity meets technology, and ideas transform into impactful solutions.</p>
-                    <p>This 12-hour competition challenges participants to build innovative projects with mentorship from industry experts and opportunities to win exciting prizes. There are no specific tracks - you're free to innovate in any domain!</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>12</h3>
-                            <p>Hours</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>100+</h3>
-                            <p>Teams</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Mentors</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>∞</h3>
-                            <p>Possibilities</p>
-                        </div>
-                    </div>
+                    <p>HackAura is a national-level virtual open innovation hackathon that unites the brightest minds from across the country to innovate, collaborate, and solve real-world challenges. Our mission is to provide a vibrant platform where creativity meets technology, and raw ideas evolve into impactful, scalable solutions.</p>
+                    <p>This 12-hour coding sprint invites developers, designers, and changemakers to build projects of their choice — no fixed tracks, no limits. Whether it's AI, Web3, Sustainability, or Social Good, you're free to explore any domain that excites you. Participants gain access to expert mentorship, interactive sessions, and a chance to win exciting prizes and recognition.</p>
+                    <p>From ideation to execution, HackAura is more than a competition — it's a launchpad for future innovators.</p>
                 </div>
                 <div class="about-image">
                     <div class="image-3d-container">
-                        <img src="images/robot.png" alt="Hackathon Illustration" class="hover-3d">
+                        <img src="images/3drobo.webp" alt="Hackathon Illustration" class="hover-3d">
                     </div>
                 </div>
             </div>
@@ -123,7 +188,6 @@
                     <h3>Mobile Development</h3>
                     <p>Create innovative mobile experiences</p>
                 </div>
-
                 <div class="track-card">
                     <div class="track-icon">
                         <i class="fas fa-wifi"></i>
@@ -131,7 +195,6 @@
                     <h3>IoT</h3>
                     <p>Connect physical devices to the digital world</p>
                 </div>
-
                 <div class="track-card">
                     <div class="track-icon">
                         <i class="fas fa-shield-alt"></i>
@@ -149,7 +212,6 @@
             </div>
         </div>
     </section>
-
 
     <section id="schedule" class="section schedule">
         <div class="container">
@@ -344,11 +406,10 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <img src="images/logo.png" alt="HackAura Logo">
+            <div class="footer-logo" style="padding: 0 50px;">
+                <img src="images/logo.png" alt="HackAura Logo" >
                 <h3>HackAura</h3>
                 <p>Where innovation finds its aura</p>
-
             </div>
             <div class="footer-links">
                 <div class="links-column">
@@ -382,15 +443,61 @@
         <div class="footer-bottom">
             <p>&copy; 2025 HackAura. All rights reserved.</p>
             <div class="footer-social">
-                <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
                 <a href="https://www.instagram.com/geeks_hive_/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/107859256/admin/dashboard/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="js/countdown.js"></script>
+    
+    <script>
+        // Audio continuation from entry page
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('bg-music');
+            const musicBtn = document.getElementById('music-control');
+            
+            // Check if audio was playing on previous page
+            if (localStorage.getItem('hackauraAudioPlaying') === 'true') {
+                const savedTime = parseFloat(localStorage.getItem('hackauraAudioTime')) || 0;
+                
+                // Set audio time and play
+                audio.currentTime = savedTime;
+                audio.play().catch(e => {
+                    console.log('Autoplay prevented, will play after interaction');
+                    
+                    // Fallback: Play on first user interaction
+                    function playOnInteraction() {
+                        audio.play();
+                        document.removeEventListener('click', playOnInteraction);
+                    }
+                    document.addEventListener('click', playOnInteraction);
+                });
+                
+                // Clear the stored state
+                localStorage.removeItem('hackauraAudioPlaying');
+                localStorage.removeItem('hackauraAudioTime');
+            } else {
+                // Try to play audio if no previous state (volume muted by default)
+                audio.volume = 0.5;
+                audio.play().catch(e => console.log('Initial autoplay prevented'));
+            }
+            
+            // Music control button functionality
+            musicBtn.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    audio.pause();
+                    musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
+            });
+            
+            // Store playback position when leaving the page
+            
+        });
+    </script>
 </body>
 </html>
